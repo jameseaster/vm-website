@@ -7,8 +7,8 @@ const count = ref(0);
 </script>
 
 <template>
-  <h1>{{ count }}</h1>
-  <button @click="count += 1">{{ buttonLabel }}</button>
+  <div class="text-h1">{{ count }}</div>
+  <q-btn @click="count += 1">{{ buttonLabel }}</q-btn>
 </template>
 
 <style scoped></style>
