@@ -1,6 +1,8 @@
 <script setup lang="ts"></script>
 
 <template>
+  <div class="text-h1 q-mt-lg">Services Page</div>
+
   <div class="flex column items-center q-pt-xl">
     <div class="text-h4 q-pq-xl">Section 1</div>
     <div class="text-body1 q-py-xl" style="width: 50vw">
