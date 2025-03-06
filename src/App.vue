@@ -1,9 +1,7 @@
-<script setup lang="ts">
-import Page from "./components/Page.vue";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Page />
+  <router-view />
 </template>
 
 <style scoped></style>

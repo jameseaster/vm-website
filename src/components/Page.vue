@@ -4,33 +4,34 @@ import Header from "./Header.vue";
 import Footer from "./Footer.vue";
 import Home from "../routes/Home.vue";
 import HeroImage from "./HeroImage.vue";
+import ThemeToggle from "./ThemeToggle.vue";
 import Gallery from "../routes/Gallery.vue";
 import Contact from "../routes/Contact.vue";
 import Services from "../routes/Services.vue";
+import router from "../router/index.ts";
 import { headerHeight, headerItems } from "../utils/constants";
 
 // Refs
 const selected = ref(headerItems[0].id);
 
-const logSelectedPage = ({ id }: { id: string }) => {
+const handleSelect = ({ id }: { id: string }) => {
   selected.value = id;
+  const item = headerItems.find((item) => item.id === id);
+  router.push(item.route);
 };
 </script>
 
 <template>
-  <HeroImage :selected="selected" />
   <Header
     class="header"
     :selected="selected"
     :style="`margin-top: -${headerHeight}px`"
-    @selected-page-id="logSelectedPage"
+    @page-select="handleSelect"
   />
+  <HeroImage :selected="selected" />
 
   <div class="page">
-    <Home v-if="selected === 'home'" />
-    <Services v-if="selected === 'services'" />
-    <Gallery v-if="selected === 'gallery'" />
-    <Contact v-if="selected === 'contact'" />
+    <slot />
   </div>
   <Footer class="footer" />
 </template>

@@ -14,13 +14,10 @@ const image = computed(() => {
 
 <template>
   <div
-    class="parallax flex column"
+    class="parallax flex column justify-center"
     :style="{ backgroundImage: `url(${image})` }"
   >
-    <div
-      class="text-white text-h1 text-bold"
-      style="padding-top: 0.5rem; padding-bottom: 0.5rem; opacity: 0.7"
-    >
+    <div class="text-white text-h1 text-bold" style="opacity: 0.7">
       VM Fab & Welding
     </div>
     <slot />

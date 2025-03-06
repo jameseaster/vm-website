@@ -1,18 +1,25 @@
 <script setup lang="ts">
+import { ref, onMounted } from "vue";
+import router from "../router/index.ts";
+import ThemeToggle from "./ThemeToggle.vue";
 import { headerHeight, headerItems } from "../utils/constants";
 
-const props = defineProps<{
-  selected: string;
-}>();
+// Refs
+const selected = ref("");
+
+// Lifecycle hooks
+onMounted(() => {
+  selected.value = router.currentRoute.value.path;
+});
 
 // Events
 const emit = defineEmits<{
-  (event: "selected-page-id", payload: { id: string }): void;
+  (event: "page-select", payload: { id: string }): void;
 }>();
 
 // Function handlers
 const handleSelect = (id: string) => {
-  emit("selected-page-id", { id });
+  emit("page-select", { id });
 };
 </script>
 
@@ -31,10 +38,12 @@ const handleSelect = (id: string) => {
         :ripple="false"
         color="white"
         :label="item.label"
-        :class="props.selected === item.id && 'selected-btn'"
+        :class="selected === item.route && 'selected-btn'"
         @click="() => handleSelect(item.id)"
       />
     </div>
+
+    <ThemeToggle />
   </div>
 </template>
 
