@@ -1,0 +1,95 @@
+<script setup>
+import router from "../router/index.ts";
+import { headerItems } from "../utils/constants.ts";
+import { ref, onMounted, onUnmounted, computed } from "vue";
+
+// Refs
+const background = ref(null);
+const foreground = ref(null);
+
+// Change image based on current path
+const backgroundUrl = computed(() => {
+  const path = router.currentRoute.value.path;
+  const item = headerItems.find(({ route }) => route === path);
+  return item.image || "";
+});
+
+const handleScroll = () => {
+  const scrollPosition = window.scrollY;
+
+  // Parallax effect strength
+  const backgroundSpeed = 0.6;
+  const foregroundSpeed = 0.15;
+
+  // Update element positions
+  if (background.value) {
+    background.value.style.transform = `translateY(${
+      scrollPosition * backgroundSpeed
+    }px)`;
+  }
+  if (foreground.value) {
+    foreground.value.style.transform = `translateY(${
+      scrollPosition * foregroundSpeed
+    }px)`;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll, { passive: true });
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll, { passive: true });
+});
+</script>
+
+<template>
+  <div class="parallax-container">
+    <div
+      ref="background"
+      class="parallax-layer background"
+      :style="{ '--background-url': `url('${backgroundUrl}')` }"
+    ></div>
+    <div class="parallax-layer foreground" ref="foreground">
+      <h1 class="gt-sm">VM Fab & Welding</h1>
+      <h2 class="lt-md">VM Fab & Welding</h2>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.parallax-container {
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  perspective: 1px;
+  transform-style: preserve-3d;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+}
+
+.background {
+  user-select: none;
+  background-image: var(--background-url);
+  transform: translateZ(-1px) scale(2);
+}
+
+.foreground {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  z-index: 1;
+  color: white;
+}
+</style>

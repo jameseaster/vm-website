@@ -1,33 +1,29 @@
-import deck from "../assets/deck.png"
-import house from "../assets/house.png"
-import stairs from "../assets/stairs.png"
-import welder from "../assets/mock-welding-photo.jpeg"
-
 export const headerItems = [
   {
     id: "home",
     route: '/',
     label: "Home",
-    image: welder
+    image: new URL("../assets/mock-welding-photo.jpeg", import.meta.url).href,
   },
   {
     id: "services",
     route: "/services",
     label: "Services",
-    image: deck
+    image: new URL("../assets/deck.png", import.meta.url).href,
+
   },
   {
     id: "gallery",
     route: "/gallery",
     label: "Gallery",
-    image: house
+    image: new URL("../assets/stairs.png", import.meta.url).href,
   },
   {
     id: "contact",
     route: "/contact",
     label: "Contact",
-    image: stairs
+    image: new URL("../assets/house.png", import.meta.url).href,
   },
 ];
 
-export const headerHeight = 75;
+export const headerHeight = 60;

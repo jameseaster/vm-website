@@ -19,8 +19,7 @@ function toggleMode() {
   <q-btn
     flat
     round
-    class="absolute-right"
-    style="height: 40px; width: 40px"
+    size="12px"
     :icon="$q.dark.isActive ? 'sunny' : 'fa fa-moon'"
     @click="toggleMode"
   />
