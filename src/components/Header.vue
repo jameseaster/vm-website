@@ -1,11 +1,8 @@
 <script setup lang="ts">
-import Logo from "./Logo.vue";
-import { ref, onMounted } from "vue";
-import router from "../router/index.ts";
-import ThemeToggle from "./ThemeToggle.vue";
+import { ref } from "vue";
 import MobileHeader from "./MobileHeader.vue";
 import DesktopHeader from "./DesktopHeader.vue";
-import { headerHeight, headerItems } from "../utils/constants";
+import { headerHeight } from "../utils/constants";
 
 // Refs
 const mobileMenu = ref(false);

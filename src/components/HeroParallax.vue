@@ -1,17 +1,17 @@
-<script setup>
+<script setup lang="ts">
 import router from "../router/index.ts";
 import { headerItems } from "../utils/constants.ts";
 import { ref, onMounted, onUnmounted, computed } from "vue";
 
 // Refs
-const background = ref(null);
-const foreground = ref(null);
+const background = ref<HTMLElement | null>(null);
+const foreground = ref<HTMLElement | null>(null);
 
 // Change image based on current path
 const backgroundUrl = computed(() => {
   const path = router.currentRoute.value.path;
   const item = headerItems.find(({ route }) => route === path);
-  return item.image || "";
+  return item?.image || "";
 });
 
 const handleScroll = () => {
@@ -35,11 +35,11 @@ const handleScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", handleScroll, { passive: true });
+  window.addEventListener("scroll", handleScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", handleScroll, { passive: true });
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
 
