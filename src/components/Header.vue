@@ -1,56 +1,30 @@
 <script setup lang="ts">
+import Logo from "./Logo.vue";
 import { ref, onMounted } from "vue";
 import router from "../router/index.ts";
 import ThemeToggle from "./ThemeToggle.vue";
+import MobileHeader from "./MobileHeader.vue";
+import DesktopHeader from "./DesktopHeader.vue";
 import { headerHeight, headerItems } from "../utils/constants";
 
 // Refs
-const selected = ref("");
-
-// Lifecycle hooks
-onMounted(() => {
-  selected.value = router.currentRoute.value.path;
-});
-
-// Events
-const emit = defineEmits<{
-  (event: "page-select", payload: { id: string }): void;
-}>();
-
-// Function handlers
-const handleSelect = (id: string) => {
-  emit("page-select", { id });
-};
+const mobileMenu = ref(false);
 </script>
 
 <template>
   <div
-    class="row full-width justify-center header-container"
     :style="`height: ${headerHeight}px`"
+    class="row full-width justify-between items-center header-container"
   >
-    <div v-for="item in headerItems" :key="item.id" class="q-ma-sm">
-      <q-btn
-        flat
-        no-caps
-        rounded
-        unelevated
-        size="large"
-        :ripple="false"
-        color="white"
-        :label="item.label"
-        :class="selected === item.route && 'selected-btn'"
-        @click="() => handleSelect(item.id)"
-      />
-    </div>
-
-    <ThemeToggle />
+    <DesktopHeader />
+    <MobileHeader
+      :mobileMenu="mobileMenu"
+      @toggle-menu="mobileMenu = !mobileMenu"
+    />
   </div>
 </template>
 
 <style scoped>
-.selected-btn {
-  border: 1px solid #aaaaaa;
-}
 .header-container {
   background-color: rgba(40, 40, 40, 0.8);
   z-index: 1;
