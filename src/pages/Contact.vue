@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import Page from "../components/Page.vue";
+import ContactForm from "../components/ContactForm.vue";
+import HeroParallax from "../components/HeroParallax.vue";
 </script>
 
 <template>
   <Page>
+    <HeroParallax>
+      <ContactForm />
+    </HeroParallax>
     <div class="text-h1 q-mt-lg">Contact Page</div>
 
     <div class="flex column items-center q-pt-xl">

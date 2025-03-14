@@ -1,9 +1,14 @@
 <script setup lang="ts">
 import Page from "../components/Page.vue";
+import HeroParallax from "../components/HeroParallax.vue";
 </script>
 
 <template>
   <Page>
+    <HeroParallax>
+      <h1 class="gt-sm">Gallery</h1>
+      <h2 class="lt-md">Gallery</h2>
+    </HeroParallax>
     <div class="text-h1 q-mt-lg">Gallery Page</div>
 
     <div class="flex column items-center q-pt-xl">

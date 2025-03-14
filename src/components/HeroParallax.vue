@@ -49,10 +49,9 @@ onUnmounted(() => {
       ref="background"
       class="parallax-layer background"
       :style="{ '--background-url': `url('${backgroundUrl}')` }"
-    ></div>
+    />
     <div class="parallax-layer foreground" ref="foreground">
-      <h1 class="gt-sm">VM Fab & Welding</h1>
-      <h2 class="lt-md">VM Fab & Welding</h2>
+      <slot />
     </div>
   </div>
 </template>
@@ -91,5 +90,10 @@ onUnmounted(() => {
   height: 100vh;
   z-index: 1;
   color: white;
+}
+
+.q-carousel {
+  border-radius: 16px;
+  overflow: hidden;
 }
 </style>

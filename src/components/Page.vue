@@ -2,7 +2,7 @@
 import { onMounted } from "vue";
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
-import HeroParallax from "./HeroParallax.vue";
+
 import { headerHeight } from "../utils/constants";
 
 // Scroll to top on page change
@@ -13,7 +13,6 @@ onMounted(() => {
 
 <template>
   <Header class="header" :style="`margin-top: -${headerHeight}px`" />
-  <HeroParallax />
   <div class="page">
     <slot />
   </div>
