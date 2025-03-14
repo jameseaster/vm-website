@@ -6,11 +6,11 @@ import axios from "axios";
 // Refs
 const loading = ref(false);
 // Form
-const firstName = ref(null);
-const lastName = ref(null);
-const email = ref(null);
-const phone = ref(null);
-const message = ref(null);
+const firstName = ref("");
+const lastName = ref("");
+const email = ref("");
+const phone = ref("");
+const message = ref("");
 const firstNameRef = ref<VNodeRef | null>(null);
 const lastNameRef = ref<VNodeRef | null>(null);
 const emailRef = ref<VNodeRef | null>(null);
@@ -44,11 +44,11 @@ async function sendMessage() {
 }
 
 function onReset() {
-  firstName.value = null;
-  lastName.value = null;
-  email.value = null;
-  phone.value = null;
-  message.value = null;
+  firstName.value = "";
+  lastName.value = "";
+  email.value = "";
+  phone.value = "";
+  message.value = "";
   firstNameRef.value.resetValidation();
   lastNameRef.value.resetValidation();
   emailRef.value.resetValidation();
