@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import Logo from "./Logo.vue";
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import router from "../router/index.ts";
-import ThemeToggle from "./ThemeToggle.vue";
-import { headerItems } from "../utils/constants";
 
 // Props
 const props = defineProps({
@@ -13,30 +10,30 @@ const props = defineProps({
   },
 });
 
-let timeoutId;
 const hover = ref(false);
+const timeoutId = ref<NodeJS.Timeout | undefined>(undefined);
 const menuOpen = ref(false);
 
 function openMenu() {
-  clearTimeout(timeoutId);
+  clearTimeout(timeoutId.value);
   hover.value = true;
   menuOpen.value = true;
 }
 
 function closeMenu() {
   hover.value = false;
-  timeoutId = setTimeout(() => {
+  timeoutId.value = setTimeout(() => {
     menuOpen.value = false;
   }, 250);
 }
 
 function keepMenuOpen() {
-  clearTimeout(timeoutId);
+  clearTimeout(timeoutId.value);
   hover.value = true;
   menuOpen.value = true;
 }
 
-const isCurrentRoute = (route) => {
+const isCurrentRoute = (route: string) => {
   return router.currentRoute.value.path.includes(route);
 };
 </script>
@@ -48,11 +45,11 @@ const isCurrentRoute = (route) => {
     unelevated
     size="large"
     :ripple="false"
-    :label="item.label"
+    :label="props.item.label"
     @mouseover="openMenu"
     @mouseleave="closeMenu"
-    :flat="!isCurrentRoute(item.route)"
-    :outline="isCurrentRoute(item.route)"
+    :flat="!isCurrentRoute(props.item.route)"
+    :outline="isCurrentRoute(props.item.route)"
     class="header-btn-color"
   >
     <q-menu v-model="menuOpen">
@@ -61,7 +58,7 @@ const isCurrentRoute = (route) => {
           clickable
           class="q-pr-xl"
           :key="child.label"
-          v-for="child in item.children"
+          v-for="child in props.item.children"
         >
           <q-item-section>
             <router-link
