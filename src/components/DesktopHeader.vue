@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Logo from "./Logo.vue";
 import router from "../router/index.ts";
+import HeaderMenu from "./HeaderMenu.vue";
 import ThemeToggle from "./ThemeToggle.vue";
 import { headerItems } from "../utils/constants";
 </script>
@@ -11,7 +12,7 @@ import { headerItems } from "../utils/constants";
   </div>
   <div class="gt-sm row">
     <div v-for="item in headerItems" :key="item.id" class="q-mx-sm">
-      <router-link class="no-style-link" :to="item.route">
+      <router-link v-if="item.type === 'button'" :to="item.route">
         <q-btn
           no-caps
           rounded
@@ -24,6 +25,7 @@ import { headerItems } from "../utils/constants";
           :outline="item.route === router.currentRoute.value.path"
         />
       </router-link>
+      <HeaderMenu v-else :item="item" />
     </div>
   </div>
   <div class="gt-sm q-mr-md">

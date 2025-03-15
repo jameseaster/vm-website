@@ -6,8 +6,8 @@ import HeroParallax from "../components/HeroParallax.vue";
 <template>
   <Page>
     <HeroParallax>
-      <h1 class="gt-sm font-color">404 Uh Oh!</h1>
-      <h2 class="lt-md font-color">404 Uh Oh!</h2>
+      <h1 class="gt-sm">Residential Welding</h1>
+      <h2 class="lt-md">Residential Welding</h2>
     </HeroParallax>
     <div class="flex column items-center q-pt-xl">
       <div class="text-h4 q-pq-xl">Section 1</div>
@@ -30,11 +30,29 @@ import HeroParallax from "../components/HeroParallax.vue";
         unde harum.
       </div>
     </div>
+
+    <div class="flex column items-center q-pt-xl">
+      <div class="text-h4 q-pq-xl">Section 2</div>
+      <div class="text-body1 q-py-xl" style="width: 50vw">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
+        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
+        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
+        unde harum.
+      </div>
+      <div class="text-body1 q-py-xl" style="width: 50vw">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
+        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
+        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
+        unde harum.
+      </div>
+      <div class="text-body1 q-py-xl" style="width: 50vw">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
+        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
+        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
+        unde harum.
+      </div>
+    </div>
   </Page>
 </template>
 
-<style scoped>
-.font-color {
-  color: var(--q-fontColor);
-}
-</style>
+<style scoped></style>

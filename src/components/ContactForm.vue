@@ -35,8 +35,6 @@ async function sendMessage() {
     loading.value = true;
     try {
       const url = import.meta.env.VITE_EMAIL_FN || "";
-      console.log({ url, form });
-      debugger;
       const result = await axios.post(url, form);
       if (result.data.error) throw new Error(result.data.message);
       $q.notify({ message: "Message sent!", color: "blue" });
@@ -77,9 +75,9 @@ function validated() {
       <div class="text-h6 themed-font">Contact Us</div>
     </q-card-section>
     <form
-      @submit.prevent.stop="sendMessage"
-      @reset.prevent.stop="onReset"
       class="q-gutter-md"
+      @reset.prevent.stop="onReset"
+      @submit.prevent.stop="sendMessage"
     >
       <q-card-section class="row q-pb-none">
         <q-input
@@ -87,6 +85,7 @@ function validated() {
           outlined
           lazy-rules
           label="First"
+          style="flex: 1"
           v-model="firstName"
           class="q-mr-xs q-py-none"
           :rules="[(val) => !!val || '* Required']"
@@ -102,6 +101,7 @@ function validated() {
           lazy-rules
           label="Last"
           v-model="lastName"
+          style="flex: 1"
           class="q-ml-xs q-py-none"
           :rules="[(val) => !!val || '* Required']"
           :color="$q.dark.isActive ? 'white' : 'dark'"

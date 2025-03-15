@@ -10,7 +10,11 @@ const foreground = ref<HTMLElement | null>(null);
 // Change image based on current path
 const backgroundUrl = computed(() => {
   const path = router.currentRoute.value.path;
-  const item = headerItems.find(({ route }) => route === path);
+  const allItems = [
+    ...headerItems,
+    ...headerItems.flatMap((item) => item.children),
+  ];
+  const item = allItems.find(({ route }) => route === path);
   return item?.image || "";
 });
 
@@ -60,12 +64,12 @@ onUnmounted(() => {
 .parallax-container {
   position: relative;
   height: 100vh;
+  min-height: 700px;
   overflow-x: hidden;
   overflow-y: hidden;
   perspective: 1px;
   transform-style: preserve-3d;
 }
-
 .parallax-layer {
   position: absolute;
   top: 0;
@@ -76,24 +80,18 @@ onUnmounted(() => {
   background-position: center;
   z-index: -1;
 }
-
 .background {
   user-select: none;
   background-image: var(--background-url);
   transform: translateZ(-1px) scale(2);
 }
-
 .foreground {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 700px;
   z-index: 1;
   color: white;
-}
-
-.q-carousel {
-  border-radius: 16px;
-  overflow: hidden;
 }
 </style>
