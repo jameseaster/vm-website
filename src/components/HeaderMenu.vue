@@ -45,31 +45,26 @@ const isCurrentRoute = (route: string) => {
     unelevated
     size="large"
     :ripple="false"
-    :label="props.item.label"
     @mouseover="openMenu"
     @mouseleave="closeMenu"
+    class="header-btn-color"
+    :label="props.item.label"
     :flat="!isCurrentRoute(props.item.route)"
     :outline="isCurrentRoute(props.item.route)"
-    class="header-btn-color"
   >
     <q-menu v-model="menuOpen">
       <q-list @mouseleave="closeMenu" @mouseover="keepMenuOpen">
-        <q-item
-          clickable
-          class="q-pr-xl"
-          :key="child.label"
+        <router-link
           v-for="child in props.item.children"
+          :key="child.label"
+          class="menu-items"
+          :to="child.route"
+          :class="isCurrentRoute(child.route) && 'underline'"
         >
-          <q-item-section>
-            <router-link
-              class="menu-items"
-              :class="isCurrentRoute(child.route) && 'underline'"
-              :to="child.route"
-            >
-              {{ child.label }}
-            </router-link>
-          </q-item-section>
-        </q-item>
+          <q-item clickable class="q-pr-xl">
+            {{ child.label }}
+          </q-item>
+        </router-link>
       </q-list>
     </q-menu>
   </q-btn>
