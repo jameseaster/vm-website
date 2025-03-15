@@ -26,3 +26,15 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+
+.body--dark {
+  --q-fontColor: #ffffff;
+  --q-headerBackground: rgba(40, 40, 40, 0.8);
+  --q-contactBackground: rgba(40, 40, 40, 0.92);
+}
+
+.body--light {
+  --q-fontColor: #1d1d1d;
+  --q-headerBackground: rgba(225, 225, 225, 0.8);
+  --q-contactBackground: rgba(225, 225, 225, 0.92);
+}

@@ -1,42 +1,52 @@
 <script setup lang="ts">
-import { ref, VNodeRef } from "vue";
-import validator from "validator";
 import axios from "axios";
+import validator from "validator";
+import { useQuasar } from "quasar";
+import { ref, VNodeRef } from "vue";
 
-// Refs
+// Local state
 const loading = ref(false);
-// Form
+
+// Form values
 const firstName = ref("");
 const lastName = ref("");
 const email = ref("");
 const phone = ref("");
 const message = ref("");
+
+// Component refs
 const firstNameRef = ref<VNodeRef | null>(null);
 const lastNameRef = ref<VNodeRef | null>(null);
 const emailRef = ref<VNodeRef | null>(null);
 const phoneRef = ref<VNodeRef | null>(null);
 const messageRef = ref<VNodeRef | null>(null);
 
+// use functions
+const $q = useQuasar();
+
 // Send message and notify user of result
 async function sendMessage() {
   if (validated()) {
     const form = {
-      firstName: firstName.value,
-      lastName: lastName.value,
+      name: `${firstName.value} ${lastName.value}`,
       email: email.value,
-      phone: phone.value,
-      message: message.value,
+      message: message.value + "\n\n\n Customers's Phone #: " + phone.value,
     };
     loading.value = true;
     try {
       const url = import.meta.env.VITE_EMAIL_FN || "";
+      console.log({ url, form });
+      debugger;
       const result = await axios.post(url, form);
       if (result.data.error) throw new Error(result.data.message);
-      // TODO: Add notifications
+      $q.notify({ message: "Message sent!", color: "blue" });
       onReset();
     } catch (err) {
       console.error(err);
-      // TODO: Add notifications
+      $q.notify({
+        message: "Unable to send message. Try again?",
+        color: "red",
+      });
     } finally {
       loading.value = false;
     }
@@ -44,16 +54,14 @@ async function sendMessage() {
 }
 
 function onReset() {
-  firstName.value = "";
-  lastName.value = "";
-  email.value = "";
-  phone.value = "";
-  message.value = "";
-  firstNameRef.value.resetValidation();
-  lastNameRef.value.resetValidation();
-  emailRef.value.resetValidation();
-  phoneRef.value.resetValidation();
-  messageRef.value.resetValidation();
+  const formValues = [firstName, lastName, email, phone, message];
+  formValues.forEach((formValue) => {
+    formValue.value = "";
+  });
+  const refs = [firstNameRef, lastNameRef, emailRef, phoneRef, messageRef];
+  refs.forEach((refs) => {
+    refs.value.resetValidation();
+  });
 }
 
 function validated() {
@@ -66,21 +74,23 @@ function validated() {
 <template>
   <q-card flat class="contact-card q-px-lg">
     <q-card-section>
-      <div class="text-h6">Contact Us</div>
+      <div class="text-h6 themed-font">Contact Us</div>
     </q-card-section>
     <form
       @submit.prevent.stop="sendMessage"
       @reset.prevent.stop="onReset"
       class="q-gutter-md"
     >
-      <q-card-section class="row">
+      <q-card-section class="row q-pb-none">
         <q-input
           ref="firstNameRef"
+          outlined
           lazy-rules
           label="First"
-          class="q-mr-xs"
           v-model="firstName"
+          class="q-mr-xs q-py-none"
           :rules="[(val) => !!val || '* Required']"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
         >
           <template v-slot:error>
             <!-- Empty slot to suppress the error icon -->
@@ -88,56 +98,69 @@ function validated() {
         </q-input>
         <q-input
           ref="lastNameRef"
+          outlined
           lazy-rules
           label="Last"
-          class="q-ml-xs"
           v-model="lastName"
+          class="q-ml-xs q-py-none"
           :rules="[(val) => !!val || '* Required']"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
         />
       </q-card-section>
-      <q-card-section>
+      <q-card-section class="row q-pb-none">
         <q-input
+          outlined
+          lazy-rules
           ref="emailRef"
           label="Email"
           v-model="email"
+          class="full-width q-py-none"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
           :rules="[
             (val) => !!val || '* Required',
             (val) => validator.isEmail(val) || '* Invalid email address',
           ]"
         />
       </q-card-section>
-      <q-card-section>
+      <q-card-section class="row q-pb-none">
         <q-input
+          outlined
           fill-mask
           lazy-rules
           label="Phone"
           ref="phoneRef"
           v-model="phone"
           mask="(###) ### - ####"
+          class="full-width q-py-none"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
           :rules="[(val) => !!val || '* Required']"
         />
       </q-card-section>
-      <q-card-section>
+      <q-card-section class="row q-pb-none">
         <q-input
           rows="5"
+          outlined
           lazy-rules
           label="Message"
           type="textarea"
           ref="messageRef"
           v-model="message"
+          class="full-width q-py-none"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
           :rules="[
             (val) => !!val || '* Required',
             (val) => val.length > 10 || '* Message is too short',
           ]"
         />
       </q-card-section>
-      <q-card-section>
+      <q-card-section class="row q-mb-lg">
         <q-btn
-          :loading="loading"
           no-caps
           outline
           type="submit"
+          :loading="loading"
           class="full-width"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
         >
           Send
         </q-btn>
@@ -148,6 +171,9 @@ function validated() {
 
 <style scoped>
 .contact-card {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: var(--q-contactBackground);
+}
+.themed-font {
+  color: var(--q-fontColor);
 }
 </style>

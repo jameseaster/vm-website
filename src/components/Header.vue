@@ -23,7 +23,7 @@ const mobileMenu = ref(false);
 
 <style scoped>
 .header-container {
-  background-color: rgba(40, 40, 40, 0.8);
+  background-color: var(--q-headerBackground);
   z-index: 1;
 }
 </style>

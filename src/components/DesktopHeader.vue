@@ -18,8 +18,8 @@ import { headerItems } from "../utils/constants";
           unelevated
           size="large"
           :ripple="false"
-          color="white"
           :label="item.label"
+          class="header-btn-color"
           :flat="item.route !== router.currentRoute.value.path"
           :outline="item.route === router.currentRoute.value.path"
         />
@@ -31,4 +31,8 @@ import { headerItems } from "../utils/constants";
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.header-btn-color {
+  color: var(--q-fontColor);
+}
+</style>

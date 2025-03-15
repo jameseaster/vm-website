@@ -31,7 +31,4 @@ onMounted(() => {
   overflow-x: hidden;
   position: relative;
 }
-.footer {
-  background-color: $footer-background;
-}
 </style>
