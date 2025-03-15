@@ -10,10 +10,12 @@ const props = defineProps({
   },
 });
 
+// Refs
 const hover = ref(false);
-const timeoutId = ref<NodeJS.Timeout | undefined>(undefined);
 const menuOpen = ref(false);
+const timeoutId = ref<NodeJS.Timeout | undefined>(undefined);
 
+// Helper functions
 function openMenu() {
   clearTimeout(timeoutId.value);
   hover.value = true;
@@ -49,6 +51,7 @@ const isCurrentRoute = (route: string) => {
     @mouseleave="closeMenu"
     class="header-btn-color"
     :label="props.item.label"
+    @click="router.push(item.route)"
     :flat="!isCurrentRoute(props.item.route)"
     :outline="isCurrentRoute(props.item.route)"
   >
