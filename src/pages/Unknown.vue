@@ -6,28 +6,22 @@ import HeroParallax from "../components/HeroParallax.vue";
 <template>
   <Page>
     <HeroParallax>
-      <h1 class="gt-sm font-color">404 Uh Oh!</h1>
-      <h2 class="lt-md font-color">404 Uh Oh!</h2>
+      <div>
+        <h1 class="gt-sm font-color">404 Uh Oh!</h1>
+        <h2 class="lt-md font-color">404 Uh Oh!</h2>
+        <q-btn
+          no-caps
+          rounded
+          color="primary"
+          label="Go Back To Home"
+          style="width: 300px; height: 60px; font-size: 24px"
+        />
+      </div>
     </HeroParallax>
     <div class="flex column items-center q-pt-xl">
-      <div class="text-h4 q-pq-xl">Section 1</div>
-      <div class="text-body1 q-py-xl" style="width: 50vw">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
-        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
-        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
-        unde harum.
-      </div>
-      <div class="text-body1 q-py-xl" style="width: 50vw">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
-        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
-        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
-        unde harum.
-      </div>
-      <div class="text-body1 q-py-xl" style="width: 50vw">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus
-        doloribus maxime, sapiente eligendi quas facere unde nulla laudantium
-        aut corporis quibusdam iure eveniet, fugiat quos! Quia excepturi quis
-        unde harum.
+      <div class="text-h4 q-pq-xl"></div>
+      <div class="text-h5 q-py-xl" style="width: 50vw">
+        Looks like you landed on the wrong page!
       </div>
     </div>
   </Page>
