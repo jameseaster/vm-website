@@ -15,7 +15,11 @@ const backgroundUrl = computed(() => {
     ...headerItems.flatMap((item) => item.children),
   ];
   const item = allItems.find(({ route }) => route === path);
-  return item?.image || "";
+  return (
+    item?.image || new URL("../assets/movie.MOV", import.meta.url).href
+    // For Images
+    // new URL("../assets/mock-welding-photo.jpeg", import.meta.url).href
+  );
 });
 
 const handleScroll = () => {
@@ -49,11 +53,23 @@ onUnmounted(() => {
 
 <template>
   <div class="parallax-container">
-    <div
+    <!-- For Images -->
+    <!-- <div
       ref="background"
       class="parallax-layer background"
       :style="{ '--background-url': `url('${backgroundUrl}')` }"
-    />
+    /> -->
+    <video
+      muted
+      loop
+      autoplay
+      playsinline
+      ref="background"
+      class="parallax-layer background"
+    >
+      <source src="../assets/movie.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
     <div class="parallax-layer foreground" ref="foreground">
       <slot />
     </div>
@@ -83,6 +99,8 @@ onUnmounted(() => {
 .background {
   user-select: none;
   background-image: var(--background-url);
+  width: 100vw;
+  object-fit: contain;
   transform: translateZ(-1px) scale(2);
 }
 .foreground {
