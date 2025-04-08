@@ -11,7 +11,7 @@ function openWindow(url: "facebook" | "instagram") {
 <template>
   <div
     class="justify-center items-center full-width q-mt-xl q-mb-md"
-    style="height: 10vh"
+    style="height: 10vh; margin-bottom: 50px"
   >
     <div class="q-mb-md">
       <q-btn
@@ -29,7 +29,7 @@ function openWindow(url: "facebook" | "instagram") {
         <font-awesome-icon class="social-icon" icon="fa-brands fa-instagram" />
       </q-btn>
     </div>
-    <div class="q-mb-md">Copyright {{ new Date().getFullYear() }}</div>
+    <div>Copyright {{ new Date().getFullYear() }}</div>
   </div>
 </template>
 
