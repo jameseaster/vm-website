@@ -1,11 +1,19 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import router from "../router/index.ts";
 import MobileHeader from "./MobileHeader.vue";
 import DesktopHeader from "./DesktopHeader.vue";
 import { headerHeight } from "../utils/constants";
 
 // Refs
 const mobileMenu = ref(false);
+
+// helper functions
+function handleMobileNavigation(route: string | undefined) {
+  if (route) {
+    router.replace(route);
+  }
+}
 </script>
 
 <template>
@@ -15,8 +23,8 @@ const mobileMenu = ref(false);
   >
     <DesktopHeader />
     <MobileHeader
-      :mobileMenu="mobileMenu"
-      @toggle-menu="mobileMenu = !mobileMenu"
+      v-model="mobileMenu"
+      @update-route="(route) => handleMobileNavigation(route)"
     />
   </div>
 </template>

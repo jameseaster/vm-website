@@ -4,11 +4,19 @@ import router from "../router/index.ts";
 import HeaderMenu from "./HeaderMenu.vue";
 import ThemeToggle from "./ThemeToggle.vue";
 import { headerItems } from "../utils/constants";
+
+// Scroll to top on logo click
+function scrollToTop() {
+  router.push("/");
+  window.scrollTo(0, 0);
+}
 </script>
 
 <template>
   <div class="gt-sm q-ml-md">
-    <Logo />
+    <q-btn flat round @click="scrollToTop">
+      <Logo />
+    </q-btn>
   </div>
   <div class="gt-sm row">
     <div v-for="item in headerItems" :key="item.id" class="q-mx-sm">

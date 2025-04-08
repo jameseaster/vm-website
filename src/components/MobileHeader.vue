@@ -4,28 +4,35 @@ import router from "../router/index.ts";
 import ThemeToggle from "./ThemeToggle.vue";
 import { headerItems } from "../utils/constants";
 
-// Props
-const props = defineProps({
-  mobileMenu: {
-    type: Boolean,
-    required: true,
-  },
-});
+//  Implicitly bind the v-model from the parent
+let dialogModel = defineModel();
 
 // Events
 const emit = defineEmits<{
-  (event: "toggle-menu"): void;
+  (event: "update-route"): void;
 }>();
+
+// Navigate to section
+async function handleNavigation(route: string | undefined) {
+  dialogModel.value = false;
+  emit("update-route", route);
+}
+
+// Scroll to top on logo click
+function scrollToTop() {
+  router.push("/");
+  window.scrollTo(0, 0);
+}
 </script>
 
 <template>
   <div class="lt-md full-width row justify-between q-px-sm">
-    <q-btn flat round>
+    <q-btn flat round @click="scrollToTop">
       <Logo />
     </q-btn>
-    <q-btn flat round @click="emit('toggle-menu')" icon="fa fa-bars" />
+    <q-btn flat round @click="dialogModel = true" icon="fa fa-bars" />
   </div>
-  <q-dialog class="lt-md" v-model="props.mobileMenu">
+  <q-dialog class="lt-md" v-model="dialogModel">
     <q-card
       flat
       bordered
@@ -34,19 +41,18 @@ const emit = defineEmits<{
     >
       <q-card-section class="row items-center q-pb-none">
         <q-space />
-        <q-btn icon="close" flat round dense @click="emit('toggle-menu')" />
+        <q-btn flat round dense icon="close" @click="dialogModel = false" />
       </q-card-section>
       <q-card-section v-for="item in headerItems" :key="item.id">
-        <router-link class="no-style-link" :to="item.route">
-          <q-btn
-            no-caps
-            rounded
-            :flat="item.route !== router.currentRoute.value.path"
-            :outline="item.route === router.currentRoute.value.path"
-          >
-            {{ item.label }}
-          </q-btn>
-        </router-link>
+        <q-btn
+          no-caps
+          rounded
+          @click="() => handleNavigation(item.route)"
+          :flat="item.route !== router.currentRoute.value.path"
+          :outline="item.route === router.currentRoute.value.path"
+        >
+          {{ item.label }}
+        </q-btn>
       </q-card-section>
       <div class="q-mt-sm">
         <ThemeToggle />
