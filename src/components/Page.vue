@@ -1,22 +1,42 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
+import { useQuasar } from "quasar";
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
-
+import router from "../router/index.ts";
 import { headerHeight } from "../utils/constants";
 
-// Scroll to top on page change
-onMounted(() => {
-  window.scrollTo(0, 0);
-});
+// use functions
+const $q = useQuasar();
+
+// helper functions
+function backToTop() {
+  router.push("/");
+}
 </script>
 
 <template>
-  <Header class="header" :style="`margin-top: -${headerHeight}px`" />
-  <div class="page">
-    <slot />
-  </div>
-  <Footer class="footer" />
+  <q-layout view="hHh lpr fFf">
+    <Header class="header" :style="`margin-top: -${headerHeight}px`" />
+    <div class="page">
+      <slot />
+    </div>
+    <Footer class="footer" />
+    <q-page-scroller
+      position="bottom-right"
+      :scroll-offset="150"
+      :offset="$q.screen.gt.sm ? [25, 25] : [10, 10]"
+    >
+      <q-btn
+        rounded
+        no-caps
+        label="Back to top"
+        icon-right="keyboard_arrow_up"
+        :color="$q.dark.isActive ? 'grey-9' : 'grey-4'"
+        :text-color="$q.dark.isActive ? 'white' : 'dark'"
+        @click="backToTop"
+      />
+    </q-page-scroller>
+  </q-layout>
 </template>
 
 <style lang="scss" scoped>
