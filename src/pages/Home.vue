@@ -3,6 +3,7 @@ import Page from "../components/Page.vue";
 import Carousel from "../components/Carousel.vue";
 import ContactForm from "../components/ContactForm.vue";
 import HeroParallax from "../components/HeroParallax.vue";
+import AnimatedItem from "../components/AnimatedItem.vue";
 
 const service1 = new URL("../assets/gate.png", import.meta.url).href;
 const service2 = new URL("../assets/house.png", import.meta.url).href;
@@ -48,39 +49,45 @@ const service3 = new URL("../assets/deck.png", import.meta.url).href;
       <div class="text-h4 q-pq-xl">Welding & Fabrication Services</div>
       <div class="row justify-center">
         <div id="residential-welding" class="q-pa-md col-md-6 col-12">
-          <q-card class="cursor-pointer q-hoverable">
-            <q-img :src="service3">
-              <div class="absolute-bottom text-h6">Residential Welding</div>
-            </q-img>
+          <AnimatedItem direction="left" :delay="200">
+            <q-card class="cursor-pointer q-hoverable">
+              <q-img :src="service3">
+                <div class="absolute-bottom text-h6">Residential Welding</div>
+              </q-img>
 
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </q-card-section>
-          </q-card>
+              <q-card-section>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </q-card-section>
+            </q-card>
+          </AnimatedItem>
         </div>
         <div id="equipment-repair" class="q-pa-md col-md-6 col-12">
-          <q-card class="cursor-pointer q-hoverable">
-            <q-img :src="service2">
-              <div class="absolute-bottom text-h6">Equipment Repair</div>
-            </q-img>
+          <AnimatedItem direction="right" :delay="200">
+            <q-card class="cursor-pointer q-hoverable">
+              <q-img :src="service2">
+                <div class="absolute-bottom text-h6">Equipment Repair</div>
+              </q-img>
 
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </q-card-section>
-          </q-card>
+              <q-card-section>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </q-card-section>
+            </q-card>
+          </AnimatedItem>
         </div>
         <div id="custom-fabrication" class="q-pa-md col-md-6 col-12">
-          <q-card class="cursor-pointer q-hoverable">
-            <q-img :src="service1">
-              <div class="absolute-bottom text-h6">Custom Fabrication</div>
-            </q-img>
-            <q-card-section>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </q-card-section>
-          </q-card>
+          <AnimatedItem direction="below" :delay="200">
+            <q-card class="cursor-pointer q-hoverable">
+              <q-img :src="service1">
+                <div class="absolute-bottom text-h6">Custom Fabrication</div>
+              </q-img>
+              <q-card-section>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </q-card-section>
+            </q-card>
+          </AnimatedItem>
         </div>
       </div>
     </div>
@@ -91,7 +98,9 @@ const service3 = new URL("../assets/deck.png", import.meta.url).href;
     >
       <div class="text-h4 q-pq-xl">Gallery</div>
       <div style="width: 100%; max-width: 900px">
-        <Carousel />
+        <AnimatedItem direction="below" :delay="175">
+          <Carousel />
+        </AnimatedItem>
       </div>
     </div>
 
@@ -101,7 +110,9 @@ const service3 = new URL("../assets/deck.png", import.meta.url).href;
       class="flex column items-center q-py-xl"
     >
       <div style="width: 100%; max-width: 600px">
-        <ContactForm />
+        <AnimatedItem direction="below" :delay="150">
+          <ContactForm />
+        </AnimatedItem>
       </div>
     </div>
   </Page>
