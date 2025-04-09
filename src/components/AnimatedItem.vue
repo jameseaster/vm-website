@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed, defineProps } from "vue";
+import { ref, onMounted, onUnmounted, computed } from "vue";
 
 const props = defineProps<{
   direction?: "left" | "right" | "above" | "below";
