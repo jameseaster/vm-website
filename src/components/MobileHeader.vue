@@ -5,11 +5,11 @@ import ThemeToggle from "./ThemeToggle.vue";
 import { headerItems } from "../utils/constants";
 
 //  Implicitly bind the v-model from the parent
-let dialogModel = defineModel();
+let dialogModel = defineModel({ default: false });
 
 // Events
 const emit = defineEmits<{
-  (event: "update-route"): void;
+  (e: "update-route", value: string | undefined): void;
 }>();
 
 // Navigate to section

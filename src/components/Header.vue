@@ -24,7 +24,7 @@ function handleMobileNavigation(route: string | undefined) {
     <DesktopHeader />
     <MobileHeader
       v-model="mobileMenu"
-      @update-route="(route) => handleMobileNavigation(route)"
+      @update-route="(route:string | undefined) => handleMobileNavigation(route)"
     />
   </div>
 </template>

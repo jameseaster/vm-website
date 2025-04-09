@@ -1,26 +1,26 @@
 <script setup lang="ts">
-import router from "../router/index.ts";
-import { headerItems } from "../utils/constants.ts";
-import { ref, onMounted, onUnmounted, computed } from "vue";
+// import router from "../router/index.ts";
+// import { headerItems } from "../utils/constants.ts";
+import { ref, onMounted, onUnmounted /* computed */ } from "vue";
 
 // Refs
 const background = ref<HTMLElement | null>(null);
 const foreground = ref<HTMLElement | null>(null);
 
 // Change image based on current path
-const backgroundUrl = computed(() => {
-  const path = router.currentRoute.value.path;
-  const allItems = [
-    ...headerItems,
-    ...headerItems.flatMap((item) => item.children),
-  ];
-  const item = allItems.find(({ route }) => route === path);
-  return (
-    item?.image || new URL("../assets/movie.MOV", import.meta.url).href
-    // For Images
-    // new URL("../assets/mock-welding-photo.jpeg", import.meta.url).href
-  );
-});
+// const backgroundUrl = computed(() => {
+//   const path = router.currentRoute.value.path;
+//   const allItems = [
+//     ...headerItems,
+//     ...headerItems.flatMap((item) => item.children),
+//   ];
+//   const item = allItems.find(({ route }) => route === path);
+//   return (
+//     item?.image || new URL("../assets/movie.MOV", import.meta.url).href
+//     // For Images
+//     // new URL("../assets/mock-welding-photo.jpeg", import.meta.url).href
+//   );
+// });
 
 const handleScroll = () => {
   const scrollPosition = window.scrollY;

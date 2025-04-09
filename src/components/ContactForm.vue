@@ -70,7 +70,7 @@ function validated() {
 </script>
 
 <template>
-  <q-card flat class="contact-card q-px-lg">
+  <q-card class="contact-card q-pa-lg">
     <q-card-section>
       <div class="text-h6 themed-font">Contact Us</div>
     </q-card-section>
@@ -79,7 +79,7 @@ function validated() {
       @reset.prevent.stop="onReset"
       @submit.prevent.stop="sendMessage"
     >
-      <q-card-section class="row q-pb-none">
+      <q-card-section class="gt-sm row q-pb-none">
         <q-input
           ref="firstNameRef"
           outlined
@@ -90,11 +90,7 @@ function validated() {
           class="q-mr-xs q-py-none"
           :rules="[(val) => !!val || '* Required']"
           :color="$q.dark.isActive ? 'white' : 'dark'"
-        >
-          <template v-slot:error>
-            <!-- Empty slot to suppress the error icon -->
-          </template>
-        </q-input>
+        />
         <q-input
           ref="lastNameRef"
           outlined
@@ -103,6 +99,33 @@ function validated() {
           v-model="lastName"
           style="flex: 1"
           class="q-ml-xs q-py-none"
+          :rules="[(val) => !!val || '* Required']"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
+        />
+      </q-card-section>
+
+      <q-card-section class="lt-md row q-pb-none">
+        <q-input
+          ref="firstNameRef"
+          outlined
+          lazy-rules
+          label="First"
+          style="flex: 1"
+          v-model="firstName"
+          class="full-width q-py-none"
+          :rules="[(val) => !!val || '* Required']"
+          :color="$q.dark.isActive ? 'white' : 'dark'"
+        />
+      </q-card-section>
+      <q-card-section class="lt-md row q-pb-none">
+        <q-input
+          ref="lastNameRef"
+          outlined
+          lazy-rules
+          label="Last"
+          style="flex: 1"
+          v-model="lastName"
+          class="full-width q-py-none"
           :rules="[(val) => !!val || '* Required']"
           :color="$q.dark.isActive ? 'white' : 'dark'"
         />
