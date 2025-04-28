@@ -73,3 +73,41 @@ export const headerItems = [
     children: []
   },
 ];
+
+export const text = {
+  homeInfo: {
+    paragraphs: [
+      "Aluminum TIG welding, stainless steel TIG welding, mild steel TIG welding, mild steel MIG welding.",
+      "Custom exhaust, Custom intakes, Hand rails, Repair work Trailer, modifications, General welding and fabrication.",
+      "You dream it, I make it. Give me a call today for a free estimate!"
+    ]
+  },
+}
+
+const service1 = new URL("../assets/gate.png", import.meta.url).href;
+const service2 = new URL("../assets/house.png", import.meta.url).href;
+const service3 = new URL("../assets/deck.png", import.meta.url).href;
+
+export const services = {
+  title: "Welding & Fabrication Services",
+  cards: [
+    {
+      id: "residential-welding",
+      img: service1,
+      title: "Residential Welding",
+      description: "Custom handrails and metalwork, built to fit your home with strength, style, and precision."
+    },
+    {
+      id: "equipment-repair",
+      img: service2,
+      title: "Equipment Repair",
+      description: "Repairs for heavy equipment, trailers, excavators, and more with strong, dependable welding that lasts."
+    },
+    {
+      id: "custom-fabrication",
+      img: service3,
+      title: "Custom Fabrication",
+      description: "Custom metal fabrication for projects big and small — from handrails and brackets to specialty parts, built exactly to your specs."
+    },
+  ]
+}
