@@ -160,8 +160,9 @@ function validated() {
         />
       </q-card-section>
       <q-card-section class="row q-pb-none">
+        <!-- TODO: Optimize rows for mobile and desktop -->
         <q-input
-          rows="5"
+          rows="10"
           outlined
           lazy-rules
           label="Message"
@@ -176,16 +177,17 @@ function validated() {
           ]"
         />
       </q-card-section>
-      <q-card-section class="row q-mb-lg">
+      <q-card-section class="row justify-center q-mb-lg">
         <q-btn
           no-caps
-          outline
+          icon-right="send"
+          size="large"
           type="submit"
+          color="primary"
           :loading="loading"
-          class="full-width"
-          :color="$q.dark.isActive ? 'white' : 'dark'"
+          style="width: 200px"
         >
-          Send
+          <div class="q-mx-sm">Send</div>
         </q-btn>
       </q-card-section>
     </form>
