@@ -7,15 +7,15 @@ import AnimatedItem from "../components/AnimatedItem.vue";
   <div
     id="services"
     style="min-height: 100vh; margin-bottom: 10vh"
-    class="flex column items-center justify-center q-pa-xl"
+    class="flex column items-center justify-center"
   >
     <div class="text-h4 q-py-md">{{ services.title }}</div>
-    <div class="row justify-center">
+    <div class="row justify-center" style="max-width: 1200px">
       <div
         v-for="card in services.cards"
         :key="card.id"
         :id="card.id"
-        class="q-pa-md col-md-6 col-12"
+        class="q-pa-md col-sm-6 col-12"
       >
         <AnimatedItem direction="left" :delay="100">
           <q-card class="cursor-pointer q-hoverable">
