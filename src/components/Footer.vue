@@ -11,7 +11,7 @@ function openWindow(url: "facebook" | "instagram") {
 <template>
   <div
     class="justify-center items-center full-width q-mt-xl q-mb-md"
-    style="height: 10vh; margin-bottom: 50px"
+    style="height: 10vh; margin-bottom: 100px"
   >
     <div class="q-mb-md">
       <q-btn

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useQuasar } from "quasar";
 import Header from "./Header.vue";
-import Footer from "./Footer.vue";
 import router from "../router/index.ts";
 import { headerHeight } from "../utils/constants";
 
@@ -20,7 +19,6 @@ function backToTop() {
     <div class="page">
       <slot />
     </div>
-    <Footer class="footer" />
     <q-page-scroller
       position="bottom-right"
       :scroll-offset="150"
