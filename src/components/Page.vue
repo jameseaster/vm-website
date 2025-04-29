@@ -15,7 +15,7 @@ function backToTop() {
 </script>
 
 <template>
-  <q-layout view="hHh lpr fFf">
+  <q-layout view="hHh lpr fFf" style="margin-top: -110px">
     <Header class="header" :style="`margin-top: -${headerHeight}px`" />
     <div class="page">
       <slot />
