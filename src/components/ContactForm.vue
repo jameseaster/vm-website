@@ -70,7 +70,13 @@ function validated() {
 </script>
 
 <template>
-  <q-card class="contact-card q-pa-lg">
+  <q-card
+    class="contact-card q-pa-lg"
+    :flat="$q.screen.lt.md"
+    :style="
+      $q.screen.lt.md ? { 'background-color': 'var(--q-background)' } : {}
+    "
+  >
     <q-card-section>
       <div class="text-h6 themed-font">Contact Us</div>
     </q-card-section>
