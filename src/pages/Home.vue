@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Page from "../components/Page.vue";
-import Info from "../components/Info.vue";
+import Reviews from "../components/Reviews.vue";
 import Contact from "../components/Contact.vue";
 import Gallery from "../components/Gallery.vue";
 import Services from "../components/Services.vue";
@@ -10,9 +10,9 @@ import HomeBanner from "../components/HomeBanner.vue";
 <template>
   <Page>
     <HomeBanner />
-    <Info />
     <Services />
     <Gallery />
+    <Reviews />
     <Contact />
   </Page>
 </template>

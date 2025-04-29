@@ -115,3 +115,26 @@ export const services = {
   ],
 };
 
+export const reviews = [
+  {
+    text: "Helped in pinch to weld a tab on trailer hitch so I don't end up being on someone traffic cam video to YouTube!",
+    author: "Christopher Maxwell",
+    stars: 5,
+  },
+  {
+    text: "VM Welding is an absolute pleasure to work with. Was able to get my work completed sooner than anticipated, pricing was very fair and the quality was amazing...",
+    author: "Cameren Fouche",
+    stars: 5,
+  },
+  {
+    text: "Amazing quality & great communication; a local gem. If you need welding or fabrication work, call these guys.",
+    author: "James Easter",
+    stars: 5,
+  },
+  {
+    text: "...These guys have become my go to shop from now on for anything that needs to be welded or fabricated. I would highly recommend working with them!",
+    author: "Nikos Pulos",
+    stars: 5,
+  },
+  { text: "", author: "Etheena Griego", stars: 5 },
+];
