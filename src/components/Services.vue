@@ -6,7 +6,7 @@ import AnimatedItem from "../components/AnimatedItem.vue";
 <template>
   <div
     id="services"
-    style="min-height: 100vh; margin-bottom: 20vh"
+    style="min-height: 100vh; margin-bottom: 10vh"
     class="flex column items-center justify-center q-pa-xl"
   >
     <div class="text-h4 q-py-md">{{ services.title }}</div>
@@ -17,7 +17,7 @@ import AnimatedItem from "../components/AnimatedItem.vue";
         :id="card.id"
         class="q-pa-md col-md-6 col-12"
       >
-        <AnimatedItem direction="left" :delay="200">
+        <AnimatedItem direction="left" :delay="100">
           <q-card class="cursor-pointer q-hoverable">
             <q-img :src="card.img">
               <div class="absolute-bottom text-h5">{{ card.title }}</div>

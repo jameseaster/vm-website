@@ -6,11 +6,11 @@ import AnimatedItem from "../components/AnimatedItem.vue";
 <template>
   <div
     id="contact"
-    style="min-height: 82vh"
     class="flex column items-center q-py-xl"
+    style="margin-top: 15vh; margin-bottom: 5vh"
   >
-    <div style="width: 100%; max-width: 600px">
-      <AnimatedItem direction="below" :delay="150">
+    <div style="width: 100%; max-width: 700px">
+      <AnimatedItem direction="below" :delay="100">
         <ContactForm />
       </AnimatedItem>
     </div>

@@ -15,7 +15,7 @@ const autoplay = ref(3000);
       navigation
       infinite
       :autoplay="autoplay"
-      style="height: 800px; max-height: 75vh"
+      style="height: 800px; max-height: 75vh; border-radius: 8px"
       @mouseenter="autoplay = 0"
       @mouseleave="autoplay = 3000"
     >
