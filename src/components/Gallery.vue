@@ -7,7 +7,7 @@ import AnimatedItem from "../components/AnimatedItem.vue";
   <div id="gallery" class="flex column items-center q-my-xl">
     <div class="text-h4 q-pq-xl">Gallery</div>
     <div style="width: 100%; max-width: 1200px">
-      <AnimatedItem direction="below" :delay="50">
+      <AnimatedItem direction="right" :delay="50">
         <Carousel />
       </AnimatedItem>
     </div>
