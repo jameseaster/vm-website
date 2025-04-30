@@ -6,7 +6,11 @@ const googleLogo = new URL("../assets/google-logo.png", import.meta.url).href;
 const duplicatedReviews = [...reviews, ...reviews];
 </script>
 <template>
-  <div class="carousel-wrapper q-my-xl">
+  <div
+    id="reviews"
+    class="carousel-wrapper"
+    style="margin-top: 20vh; margin-bottom: 20vh"
+  >
     <div class="carousel-track">
       <q-card
         class="carousel-slide"
