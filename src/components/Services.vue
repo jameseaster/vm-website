@@ -3,11 +3,11 @@ import { reactive } from "vue";
 import { services } from "../utils/constants.ts";
 import AnimatedItem from "../components/AnimatedItem.vue";
 
-const expanded = reactive({
-  1: false,
-  2: false,
-  3: false,
-});
+const expanded = reactive(
+  services.cards.reduce<{ [key: string]: boolean }>((all, cur) => {
+    return { ...all, [cur.id]: false };
+  }, {})
+);
 </script>
 
 <template>
@@ -19,7 +19,7 @@ const expanded = reactive({
     <div class="text-h4 q-py-md">{{ services.title }}</div>
     <div class="row justify-center" style="max-width: 1200px">
       <div
-        v-for="(card, index) in services.cards"
+        v-for="card in services.cards"
         :key="card.id"
         :id="card.id"
         class="q-pa-md col-sm-6 col-12"
@@ -44,13 +44,15 @@ const expanded = reactive({
                 rounded
                 no-caps
                 :icon-right="
-                  expanded[index] ? 'keyboard_arrow_up' : 'keyboard_arrow_down'
+                  expanded[card.id]
+                    ? 'keyboard_arrow_up'
+                    : 'keyboard_arrow_down'
                 "
-                @click="expanded[index] = !expanded[index]"
+                @click="expanded[card.id] = !expanded[card.id]"
               />
             </q-card-actions>
             <q-slide-transition>
-              <div v-show="expanded[index]">
+              <div v-show="expanded[card.id]">
                 <q-card-section class="text-subtitle2">
                   {{ card.moreDetails }}
                 </q-card-section>
