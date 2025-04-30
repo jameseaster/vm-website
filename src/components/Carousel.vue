@@ -1,31 +1,38 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useQuasar } from "quasar";
 import { galleryImages } from "../utils/constants.ts";
 
+// refs
 const slide = ref(0);
-const autoplay = ref(3000);
+const autoplay = ref(5000);
+
+// use hooks
+const $q = useQuasar();
 </script>
 
 <template>
   <div class="q-pa-md">
-    <q-carousel
-      v-model="slide"
-      arrows
-      animated
-      navigation
-      infinite
-      :autoplay="autoplay"
-      style="height: 800px; max-height: 75vh; border-radius: 8px"
-      @mouseenter="autoplay = 0"
-      @mouseleave="autoplay = 3000"
-    >
-      <q-carousel-slide
-        v-for="(image, index) in galleryImages"
-        :key="image"
-        :name="index"
-        :img-src="image"
-      />
-    </q-carousel>
+    <q-card>
+      <q-carousel
+        v-model="slide"
+        animated
+        infinite
+        navigation
+        :autoplay="autoplay"
+        :dark="$q.dark.isActive"
+        style="height: 800px; max-height: 75vh"
+        @mouseenter="autoplay = 0"
+        @mouseleave="autoplay = 5000"
+      >
+        <q-carousel-slide
+          v-for="(image, index) in galleryImages"
+          :key="image"
+          :name="index"
+          :img-src="image"
+        />
+      </q-carousel>
+    </q-card>
   </div>
 </template>
 
