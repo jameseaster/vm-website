@@ -90,7 +90,7 @@ function validated() {
           ref="firstNameRef"
           outlined
           lazy-rules
-          label="First"
+          label="First Name"
           style="flex: 1"
           v-model="firstName"
           class="q-mr-xs q-py-none"
@@ -101,7 +101,7 @@ function validated() {
           ref="lastNameRef"
           outlined
           lazy-rules
-          label="Last"
+          label="Last Name"
           v-model="lastName"
           style="flex: 1"
           class="q-ml-xs q-py-none"
@@ -115,7 +115,7 @@ function validated() {
           ref="firstNameRef"
           outlined
           lazy-rules
-          label="First"
+          label="First Name"
           style="flex: 1"
           v-model="firstName"
           class="full-width q-py-none"
@@ -128,7 +128,7 @@ function validated() {
           ref="lastNameRef"
           outlined
           lazy-rules
-          label="Last"
+          label="Last Name"
           style="flex: 1"
           v-model="lastName"
           class="full-width q-py-none"
