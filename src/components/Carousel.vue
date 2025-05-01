@@ -30,7 +30,16 @@ const $q = useQuasar();
           :key="image"
           :name="index"
           :img-src="image"
-        />
+        >
+          <div
+            class="absolute-bottom"
+            style="
+              width: 100%;
+              height: 10%;
+              background-color: rgba(0, 0, 0, 0.5);
+            "
+          ></div>
+        </q-carousel-slide>
       </q-carousel>
     </q-card>
   </div>

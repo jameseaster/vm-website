@@ -2,16 +2,19 @@ export const headerHeight = 65;
 
 export const galleryImages = [
   new URL("../assets/gallery/IMG_0247.png", import.meta.url).href,
-  new URL("../assets/gallery/IMG_0757.png", import.meta.url).href,
-  new URL("../assets/gallery/IMG_1161.png", import.meta.url).href,
-  new URL("../assets/gallery/IMG_1192.png", import.meta.url).href,
-  new URL("../assets/gallery/IMG_0219.png", import.meta.url).href,
   new URL("../assets/gallery/IMG_0220.png", import.meta.url).href,
-  new URL("../assets/gallery/IMG_1306.png", import.meta.url).href,
+  new URL("../assets/gallery/deck.png", import.meta.url).href,
   new URL("../assets/gallery/IMG_1308.png", import.meta.url).href,
+  new URL("../assets/gallery/IMG_1306.png", import.meta.url).href,
+  new URL("../assets/gallery/IMG_1161.png", import.meta.url).href,
+  new URL("../assets/gallery/house.png", import.meta.url).href,
+  new URL("../assets/gallery/IMG_0219.png", import.meta.url).href,
+  new URL("../assets/gallery/gate.png", import.meta.url).href,
   new URL("../assets/gallery/IMG_1440.png", import.meta.url).href,
   new URL("../assets/gallery/IMG_1590.png", import.meta.url).href,
+  new URL("../assets/gallery/IMG_1192.png", import.meta.url).href,
   new URL("../assets/gallery/IMG_1902.png", import.meta.url).href,
+  new URL("../assets/gallery/IMG_0757.png", import.meta.url).href,
 ];
 
 export const headerItems = [
@@ -74,9 +77,11 @@ export const headerItems = [
   },
 ];
 
-const service1 = new URL("../assets/gate.png", import.meta.url).href;
-const service2 = new URL("../assets/house.png", import.meta.url).href;
-const service3 = new URL("../assets/deck.png", import.meta.url).href;
+const service1 = new URL("../assets/gallery/IMG_0247.png", import.meta.url)
+  .href;
+const service2 = new URL("../assets/gallery/house.png", import.meta.url).href;
+const service3 = new URL("../assets/gallery/IMG_0220.png", import.meta.url)
+  .href;
 
 export const services = {
   title: "Welding & Fabrication Services",
@@ -134,3 +139,16 @@ export const reviews = [
   },
   { text: "", author: "Etheena Griego", stars: 5 },
 ];
+
+export const contactInfo = {
+  email: "vmfabrication@outlook.com",
+  phone: "(719) 987-6543",
+  hours: "M-F 8am-5pm",
+};
+
+export const links = {
+  facebook: "https://www.facebook.com/profile.php?id=100072490594696",
+  instagram: "https://www.instagram.com/vmweldingandfab/",
+  google:
+    "https://www.google.com/maps/place/VM+Welding+and+Fabrication+LLC/@38.8382793,-104.7644498,1080m/data=!3m2!1e3!4b1!4m6!3m5!1s0x23b9e840c81d0eb9:0xac873e6922bc85c7!8m2!3d38.8382793!4d-104.7644498!16s%2Fg%2F11p60pmff_?entry=ttu&g_ep=EgoyMDI1MDQyOC4wIKXMDSoASAFQAw%3D%3D",
+};

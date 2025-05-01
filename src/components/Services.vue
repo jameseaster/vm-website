@@ -26,8 +26,8 @@ const expanded = reactive(
       >
         <AnimatedItem direction="left" :delay="100">
           <q-card class="my-card">
-            <q-img :src="card.img">
-              <div class="absolute-bottom text-h5">{{ card.title }}</div>
+            <q-img :src="card.img" style="max-height: 375px">
+              <div class="absolute-bottom text-h4">{{ card.title }}</div>
             </q-img>
             <q-card-section>
               <div class="text-h6">

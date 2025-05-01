@@ -1,10 +1,12 @@
 <script setup lang="ts">
-function openWindow(url: "facebook" | "instagram") {
-  const urls = {
-    facebook: "https://www.facebook.com/profile.php?id=100072490594696",
-    instagram: "https://www.instagram.com/vmweldingandfab/",
-  };
-  window.open(urls[url]);
+import { contactInfo, links } from "../utils/constants";
+import { useQuasar } from "quasar";
+
+// Use functions
+const $q = useQuasar();
+
+function openWindow(url: "facebook" | "instagram" | "google") {
+  window.open(links[url]);
 }
 </script>
 
@@ -16,20 +18,41 @@ function openWindow(url: "facebook" | "instagram") {
     <div class="q-mb-md">
       <q-btn
         round
-        class="q-mx-sm q-pa-sm glossy"
+        size="large"
+        class="q-mx-sm q-pa-sm"
+        :outline="$q.dark.isActive"
+        :color="$q.dark.isActive ? 'white' : 'dark'"
         @click="() => openWindow('facebook')"
       >
         <font-awesome-icon class="social-icon" icon="fa-brands fa-facebook" />
       </q-btn>
       <q-btn
         round
-        class="q-mx-sm q-pa-sm glossy"
+        size="large"
+        class="q-mx-sm q-pa-sm"
+        :outline="$q.dark.isActive"
+        :color="$q.dark.isActive ? 'white' : 'dark'"
         @click="() => openWindow('instagram')"
       >
         <font-awesome-icon class="social-icon" icon="fa-brands fa-instagram" />
       </q-btn>
+      <q-btn
+        round
+        size="large"
+        class="q-mx-sm q-pa-sm"
+        :outline="$q.dark.isActive"
+        :color="$q.dark.isActive ? 'white' : 'dark'"
+        @click="() => openWindow('google')"
+      >
+        <font-awesome-icon class="social-icon" icon="fa-brands fa-google" />
+      </q-btn>
     </div>
-    <div>Copyright {{ new Date().getFullYear() }}</div>
+    <div class="text-body1 q-my-xs">{{ contactInfo.hours }}</div>
+    <div class="text-body1 q-my-xs">{{ contactInfo.phone }}</div>
+    <div class="text-body1 q-my-xs">{{ contactInfo.email }}</div>
+    <div class="text-body1 q-my-xs">
+      Copyright {{ new Date().getFullYear() }}
+    </div>
   </div>
 </template>
 
