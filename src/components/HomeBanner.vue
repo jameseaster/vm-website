@@ -4,25 +4,29 @@ import HeroParallax from "../components/HeroParallax.vue";
 
 <template>
   <HeroParallax style="margin-bottom: 7vh">
-    <div class="gt-sm">
-      <h1 class="q-mb-none" style="font-weight: 400">VM Fab & Welding</h1>
-      <h3 class="q-mt-none" style="max-width: 800px; font-weight: 500">
+    <div class="gt-sm q-mx-xl">
+      <h1 class="q-mb-none" style="font-weight: 500">
+        VM Welding & Fabrication
+      </h1>
+      <!-- <h3 class="q-mt-none" style="max-width: 800px; font-weight: 500">
         Commercial & Residential
-      </h3>
-      <h4 style="max-width: 700px; font-weight: 500">
+      </h3> -->
+      <!-- <h4 style="max-width: 700px; font-weight: 500">
         Denver · Colorado Springs · Pueblo
-      </h4>
+      </h4> -->
     </div>
-    <div class="lt-md">
-      <h2 class="q-mb-none" style="font-weight: 500">VM Fab & Welding</h2>
-      <h4 class="q-mt-none" style="max-width: 800px; font-weight: 500">
+    <div class="lt-md q-mx-xl">
+      <h2 class="q-mb-none" style="font-weight: 500">
+        VM Welding & Fabrication
+      </h2>
+      <!-- <h4 class="q-mt-none" style="max-width: 800px; font-weight: 500">
         Commercial & Residential
-      </h4>
-      <h5 style="max-width: 700px; font-weight: 500">
+      </h4> -->
+      <!-- <h5 style="max-width: 700px; font-weight: 500">
         Colorado Springs <br />
         Denver <br />
         Pueblo
-      </h5>
+      </h5> -->
     </div>
   </HeroParallax>
 </template>

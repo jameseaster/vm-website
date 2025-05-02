@@ -11,8 +11,8 @@ import HomeBanner from "../components/HomeBanner.vue";
 <template>
   <Page>
     <HomeBanner />
-    <Services />
     <Reviews />
+    <Services />
     <Gallery />
     <Contact />
     <Footer />

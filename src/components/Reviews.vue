@@ -1,20 +1,41 @@
 <script lang="ts" setup>
-import { reviews } from "../utils/constants";
-const googleLogo = new URL("../assets/google-logo.png", import.meta.url).href;
+import { useQuasar } from "quasar";
+import { aboutUs } from "../utils/constants";
+import AnimatedItem from "../components/AnimatedItem.vue";
 
 // Duplicate the reviews to make the loop seamless
-const duplicatedReviews = [...reviews, ...reviews];
+const duplicatedReviews = [...aboutUs.reviews, ...aboutUs.reviews];
+
+const googleLogo = new URL("../assets/google-logo.png", import.meta.url).href;
+
+// use functions
+const $q = useQuasar();
 </script>
+
 <template>
   <div
     id="reviews"
-    class="carousel-wrapper"
-    style="margin-top: 20vh; margin-bottom: 20vh"
+    class="flex column items-center q-py-xl"
+    style="margin-top: 13vh"
   >
+    <AnimatedItem direction="below" :delay="50">
+      <div class="text-h6" style="width: 80vw; max-width: 900px">
+        <q-card
+          class="q-pa-xl"
+          :flat="$q.screen.lt.md"
+          :style="
+            $q.screen.lt.md ? { 'background-color': 'var(--q-background)' } : {}
+          "
+        >
+          {{ aboutUs.text }}
+        </q-card>
+      </div>
+    </AnimatedItem>
+  </div>
+  <div class="carousel-wrapper" style="margin-bottom: 20vh">
     <div class="carousel-track">
       <q-card
         class="carousel-slide"
-        flat
         v-for="(review, index) in duplicatedReviews"
         :key="index"
       >

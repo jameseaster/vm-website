@@ -13,7 +13,7 @@ function openWindow(url: "facebook" | "instagram" | "google") {
 <template>
   <div
     class="justify-center items-center full-width q-mt-xl q-mb-md"
-    style="height: 10vh; margin-bottom: 100px"
+    style="height: 225px"
   >
     <div class="q-mb-md">
       <q-btn
@@ -47,11 +47,11 @@ function openWindow(url: "facebook" | "instagram" | "google") {
         <font-awesome-icon class="social-icon" icon="fa-brands fa-google" />
       </q-btn>
     </div>
-    <div class="text-body1 q-my-xs">{{ contactInfo.hours }}</div>
+    <div class="text-body1 q-mt-lg q-mb-xs">{{ contactInfo.hours }}</div>
     <div class="text-body1 q-my-xs">{{ contactInfo.phone }}</div>
     <div class="text-body1 q-my-xs">{{ contactInfo.email }}</div>
-    <div class="text-body1 q-my-xs">
-      Copyright {{ new Date().getFullYear() }}
+    <div class="text-body1 q-mt-lg">
+      <i>Copyright {{ new Date().getFullYear() }}</i>
     </div>
   </div>
 </template>

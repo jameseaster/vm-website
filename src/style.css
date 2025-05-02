@@ -31,7 +31,6 @@ body {
   --q-fontColor: #ffffff;
   --q-fontColorSecondary: #ababab;
   --q-headerBackground: rgba(40, 40, 40, 0.8);
-  --q-contactBackground: rgba(40, 40, 40, 0.92);
   --q-background: linear-gradient(to top left, #000000, #1a1a1a);
 }
 
@@ -39,6 +38,5 @@ body {
   --q-fontColor: #1d1d1d;
   --q-fontColorSecondary: #555555;
   --q-headerBackground: rgba(225, 225, 225, 0.8);
-  --q-contactBackground: rgba(225, 225, 225, 0.92);
   --q-background: linear-gradient(to top left, #ffffff, #f2f2f2);
 }

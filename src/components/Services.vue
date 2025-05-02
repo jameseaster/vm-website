@@ -24,7 +24,7 @@ const expanded = reactive(
         :id="card.id"
         class="q-pa-md col-sm-6 col-12"
       >
-        <AnimatedItem direction="left" :delay="100">
+        <AnimatedItem direction="left" :delay="50">
           <q-card class="my-card">
             <q-img :src="card.img" style="max-height: 375px">
               <div class="absolute-bottom text-h4">{{ card.title }}</div>
@@ -34,7 +34,7 @@ const expanded = reactive(
                 {{ card.description }}
               </div>
             </q-card-section>
-            <q-card-actions>
+            <q-card-actions v-if="!!card.moreDetails.length">
               <q-space />
               <q-btn
                 flat

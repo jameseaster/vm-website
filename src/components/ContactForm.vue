@@ -71,7 +71,7 @@ function validated() {
 
 <template>
   <q-card
-    class="contact-card q-pa-lg"
+    class="q-pa-lg"
     :flat="$q.screen.lt.md"
     :style="
       $q.screen.lt.md ? { 'background-color': 'var(--q-background)' } : {}
@@ -166,7 +166,6 @@ function validated() {
         />
       </q-card-section>
       <q-card-section class="row q-pb-none">
-        <!-- TODO: Optimize rows for mobile and desktop -->
         <q-input
           rows="10"
           outlined
@@ -201,9 +200,6 @@ function validated() {
 </template>
 
 <style scoped>
-.contact-card {
-  background-color: var(--q-contactBackground);
-}
 .themed-font {
   color: var(--q-fontColor);
 }

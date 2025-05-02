@@ -10,7 +10,7 @@ import AnimatedItem from "../components/AnimatedItem.vue";
     style="margin-top: 15vh; margin-bottom: 5vh"
   >
     <div style="width: 100%; max-width: 700px">
-      <AnimatedItem direction="below" :delay="100">
+      <AnimatedItem direction="below" :delay="50">
         <ContactForm />
       </AnimatedItem>
     </div>
