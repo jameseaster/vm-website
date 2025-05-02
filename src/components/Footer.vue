@@ -50,7 +50,7 @@ function openWindow(url: "facebook" | "instagram" | "google") {
     <div class="text-body1 q-mt-lg q-mb-xs">{{ contactInfo.hours }}</div>
     <div class="text-body1 q-my-xs">{{ contactInfo.phone }}</div>
     <div class="text-body1 q-my-xs">{{ contactInfo.email }}</div>
-    <div class="text-body1 q-mt-lg">
+    <div class="text-body1 q-mt-lg copyright">
       <i>Copyright {{ new Date().getFullYear() }}</i>
     </div>
   </div>
@@ -60,5 +60,8 @@ function openWindow(url: "facebook" | "instagram" | "google") {
 .social-icon {
   width: 2rem;
   height: 2rem;
+}
+.copyright {
+  color: var(--q-fontColorSecondary);
 }
 </style>

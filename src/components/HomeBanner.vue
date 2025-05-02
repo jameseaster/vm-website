@@ -5,7 +5,7 @@ import HeroParallax from "../components/HeroParallax.vue";
 <template>
   <HeroParallax style="margin-bottom: 7vh">
     <div class="gt-sm q-mx-xl">
-      <h1 class="q-mb-none" style="font-weight: 500">
+      <h1 class="q-mb-none font-color-bg" style="font-weight: 500">
         VM Welding & Fabrication
       </h1>
       <!-- <h3 class="q-mt-none" style="max-width: 800px; font-weight: 500">
@@ -16,7 +16,7 @@ import HeroParallax from "../components/HeroParallax.vue";
       </h4> -->
     </div>
     <div class="lt-md q-mx-xl">
-      <h2 class="q-mb-none" style="font-weight: 500">
+      <h2 class="q-mb-none font-color-bg" style="font-weight: 500">
         VM Welding & Fabrication
       </h2>
       <!-- <h4 class="q-mt-none" style="max-width: 800px; font-weight: 500">
@@ -31,4 +31,8 @@ import HeroParallax from "../components/HeroParallax.vue";
   </HeroParallax>
 </template>
 
-<style scoped></style>
+<style scoped>
+.font-color-bg {
+  color: #f1f1f1;
+}
+</style>

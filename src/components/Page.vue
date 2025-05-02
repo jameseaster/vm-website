@@ -48,6 +48,6 @@ function backToTop() {
   width: 100vw;
   overflow-x: hidden;
   position: relative;
-  background: var(--q-background);
+  background: var(--q-background-gradient);
 }
 </style>

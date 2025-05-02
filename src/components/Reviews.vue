@@ -24,7 +24,9 @@ const $q = useQuasar();
           class="q-pa-xl"
           :flat="$q.screen.lt.md"
           :style="
-            $q.screen.lt.md ? { 'background-color': 'var(--q-background)' } : {}
+            $q.screen.lt.md
+              ? { 'background-color': 'var(--q-background-gradient)' }
+              : {}
           "
         >
           {{ aboutUs.text }}
