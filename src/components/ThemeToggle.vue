@@ -6,7 +6,7 @@ import { useQuasar } from "quasar";
 const $q = useQuasar();
 
 // Refs
-const darkMode = ref(false);
+const darkMode = ref(true);
 
 // Toggle theme mode
 function toggleMode() {
@@ -19,10 +19,16 @@ function toggleMode() {
   $q.dark.toggle();
 }
 
+// default to dark mode
 onMounted(() => {
   const modeIsDark = window.localStorage.getItem("darkMode");
-  $q.dark.set(modeIsDark === "true");
-  darkMode.value = modeIsDark === "true";
+  if (modeIsDark === "false") {
+    $q.dark.set(false);
+    darkMode.value = false;
+  } else {
+    $q.dark.set(true);
+    darkMode.value = true;
+  }
 });
 </script>
 
