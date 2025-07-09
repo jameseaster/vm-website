@@ -150,8 +150,8 @@ export const aboutUs = {
 
 export const contactInfo = {
   email: "vmfabrication@outlook.com",
-  phone: "(719) 987-6543",
-  hours: "M-F 8am-5pm",
+  phone: "(719) 663-5335",
+  hours: "M-F 8am-6pm",
 };
 
 export const links = {
